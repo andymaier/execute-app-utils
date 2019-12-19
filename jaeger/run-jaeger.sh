@@ -1,5 +1,5 @@
-docker rm -f jaeger
-docker run -d --name jaeger \
+docker rm -f jaegertracing
+docker run -d --name jaegertracing \
   -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
   -p 5775:5775/udp \
   -p 6831:6831/udp \
@@ -8,4 +8,4 @@ docker run -d --name jaeger \
   -p 16686:16686 \
   -p 14268:14268 \
   -p 9411:9411 \
-  jaegertracing/all-in-one:1.9
+  --network cp-all-in-one_default jaegertracing/all-in-one:1.9
